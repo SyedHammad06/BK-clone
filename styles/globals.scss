@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'Block Berthold';
+  src: url('../assets/Block\ Berthold\ Regular.ttf');
+}
+
+@font-face {
+  font-family: 'DIN Regular';
+  src: url('../assets/DIN\ Next\ LT\ Pro\ Regular.ttf');
+}
+
+@font-face {
+  font-family: 'DIN Bold';
+  src: url('../assets/DINNextLTPro-Bold.ttf');
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  line-height: 1.5;
+}
