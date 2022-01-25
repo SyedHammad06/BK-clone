@@ -1,14 +1,15 @@
-import type { NextPage } from 'next'
-import { HomePage } from '../components/HomePage'
-import { Navbar } from '../components/Navbar'
+import type { NextPage } from 'next';
+import { HomePage } from '../components/HomePage/HomePage';
+import { Navbar } from '../components/Navbar/Navbar';
+import { Slideshow } from '../components/Slideshow/Slideshow';
 
 const Home: NextPage = () => {
   return (
     <>
       <Navbar />
-      <HomePage />
+      <Slideshow />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
