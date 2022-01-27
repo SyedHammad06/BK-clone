@@ -1,5 +1,53 @@
+@use '../../sass/variables' as *;
+@use '../../sass/variables' as *;
+@use '../../sass/mixins' as *;
+
 .Slideshow {
+  width: 100%;
+  height: 100%;
+
   &__container {
-    margin-top: 7.5rem;
+    width: 100%;
+    height: 33.3rem;
+    margin-top: 7.6rem;
+    position: relative;
+  }
+
+  &__slide {
+    position: absolute;
+    inset: 0 0 0 0;
+
+    &--active {
+      z-index: 1;
+    }
+  }
+
+  &__dots-container {
+    position: absolute;
+    bottom: 2.5rem;
+    z-index: 2;
+    left: 24%;
+    @include flex(space-between, center);
+  }
+
+  &__dots {
+    width: 0.8rem;
+    height: 0.8rem;
+    margin: 0.2rem;
+    background-color: $color-white;
+    opacity: 0.6;
+    border-radius: 50%;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.25s;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &--active {
+      width: 2rem;
+      border-radius: 10rem;
+      opacity: 1;
+    }
   }
 }
