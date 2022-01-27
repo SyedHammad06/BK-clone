@@ -25,7 +25,7 @@ export const Navbar: NextPage = () => {
           {/* Slider */}
           <div className='Navbar__slider--container'>
             <div className='Navbar__slider--left'>
-              <p
+              <h3
                 className={
                   slider
                     ? 'Navbar__slider--text-1 Navbar__slider--text-1--active'
@@ -33,7 +33,7 @@ export const Navbar: NextPage = () => {
                 }
               >
                 Dine In/Takeaway
-              </p>
+              </h3>
             </div>
             <div
               className={
@@ -52,7 +52,7 @@ export const Navbar: NextPage = () => {
               ></div>
             </div>
             <div className='Navbar__slider-right'>
-              <p
+              <h3
                 className={
                   slider
                     ? 'Navbar__slider--text-2 Navbar__slider--text-2--active'
@@ -60,7 +60,7 @@ export const Navbar: NextPage = () => {
                 }
               >
                 Delivery
-              </p>
+              </h3>
             </div>
           </div>
           {/* Line */}
@@ -76,19 +76,19 @@ export const Navbar: NextPage = () => {
         <nav className='Navbar__menu'>
           <div className='Navbar__menu--1 Navbar__menu--item'>
             <NearbyStores />
-            <p className='Navbar__menu--text'>Nearby Stores</p>
+            <h3 className='Navbar__menu--text'>Nearby Stores</h3>
           </div>
           <div className='Navbar__menu--2 Navbar__menu--item'>
             <KingDeals />
-            <p className='Navbar__menu--text'>King Deals</p>
+            <h3 className='Navbar__menu--text'>King Deals</h3>
           </div>
           <div className='Navbar__menu--3 Navbar__menu--item'>
             <Profile />
-            <p className='Navbar__menu--text'>My Profile</p>
+            <h3 className='Navbar__menu--text'>My Profile</h3>
           </div>
           <div className='Navbar__menu--4 Navbar__menu--item'>
             <Cart />
-            <p className='Navbar__menu--text'>Cart</p>
+            <h3 className='Navbar__menu--text'>Cart</h3>
           </div>
         </nav>
         {/* Search */}

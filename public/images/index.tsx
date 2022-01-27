@@ -22,6 +22,7 @@ export const MainMenu5 = require('./main-menu-5.png');
 export const MainMenu6 = require('./main-menu-6.png');
 export const MainMenu7 = require('./main-menu-7.png');
 export const MainMenu8 = require('./main-menu-8.png');
+export const MainMenu9 = require('./main-menu-9.png');
 export const MenuBack = require('./menu-back.png');
 export const PlayStore = require('./play-store.png');
 export const Showcase1 = require('./showcase-1.png');

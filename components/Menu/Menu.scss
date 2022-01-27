@@ -1,0 +1,119 @@
+@use '../../sass/mixins' as *;
+@use '../../sass/variables' as *;
+
+.Menu {
+  position: relative;
+  padding: 0 7.5%;
+  font-family: 'DIN Bold';
+  background-image: url('../../public/images/menu-back.png');
+
+  &__top {
+    width: 100%;
+    padding: 3rem 0;
+    @include flex(space-between, center);
+  }
+
+  &__heading {
+    font-family: 'BB';
+  }
+
+  &__see-all {
+    &--text {
+      color: $color-orange;
+      font-size: 1.6rem;
+    }
+
+    & svg {
+      margin-left: 1rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__bottom {
+    width: 100%;
+    overflow-x: scroll;
+    @include flex(flex-start, baseline);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    transition: 0.25s;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__item {
+    &:not(:last-of-type) {
+      margin-right: 4rem;
+    }
+
+    &:last-of-type {
+      margin-right: 2rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &--img {
+      width: 11.4rem;
+      height: 11.4rem;
+      padding: 2rem 1rem;
+      border-radius: 1rem;
+      box-shadow: $box-shadow;
+      background-color: $color-white;
+    }
+
+    &--text {
+      line-height: 1.33;
+      font-size: 1.8rem;
+      text-align: center;
+      padding: 1.6rem 0 2.9rem;
+    }
+  }
+
+  &__arrow {
+    &--left,
+    &--right {
+      width: 4rem;
+      height: 6.5rem;
+      border: none;
+      background-color: $color-white;
+      box-shadow: $box-shadow;
+      display: grid;
+      place-items: center;
+
+      &:disabled {
+        & svg {
+          & path {
+            fill: gray;
+          }
+        }
+        cursor: not-allowed;
+      }
+    }
+
+    &--left {
+      position: absolute;
+      left: 6.6rem;
+      top: 50%;
+      transform: translateY(-40%);
+      border-radius: 1rem 0 0 1rem;
+
+      & svg {
+        transform: rotateZ(180deg);
+      }
+    }
+
+    &--right {
+      position: absolute;
+      right: 8rem;
+      top: 50%;
+      transform: translateY(-40%);
+      border-radius: 0 1rem 1rem 0;
+    }
+  }
+}

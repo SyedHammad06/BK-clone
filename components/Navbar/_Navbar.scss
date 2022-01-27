@@ -102,10 +102,8 @@
 
     &--text-1,
     &--text-2 {
-      font-family: 'BB';
       font-size: 1.4rem;
       transition: 0.25s;
-      text-transform: uppercase;
     }
 
     &--text-1 {
@@ -174,11 +172,9 @@
     }
 
     &--text {
-      font-family: BB;
       font-size: 1.4rem;
       margin-left: 0.4rem;
       color: $text-black-light;
-      text-transform: uppercase;
     }
   }
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { NextPage } from 'next';
 import Image from 'next/image';
+
 import {
   Showcase1,
   Showcase2,

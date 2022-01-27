@@ -1,7 +1,9 @@
 @use '../sass/variables' as *;
+@use '../sass/typography' as *;
 
 @use '../components/Navbar/Navbar' as *;
 @use '../components/Slideshow/Slideshow' as *;
+@use '../components/Menu/Menu.scss' as *;
 
 @font-face {
   font-family: 'BB';
@@ -32,6 +34,7 @@ html {
 
 body {
   line-height: 1.5;
+  font-family: 'DIN Regular';
 }
 
 header {
