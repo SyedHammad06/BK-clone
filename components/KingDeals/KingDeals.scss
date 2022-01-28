@@ -1,0 +1,20 @@
+@use '../../sass/mixins' as *;
+
+.KingDeals {
+  padding: 0 7.5%;
+
+  &__heading {
+    padding: 3rem 0;
+  }
+
+  &__card {
+    width: 37rem;
+    height: 18rem;
+    margin-right: 3rem;
+
+    &--container {
+      width: 100%;
+      @include flex(flex-start, center);
+    }
+  }
+}

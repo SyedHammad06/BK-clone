@@ -14,6 +14,7 @@ export const Fav6 = require('./fav-6.png');
 export const Fav7 = require('./fav-7.png');
 export const KingDeal1 = require('./king-deal-1.png');
 export const KingDeal2 = require('./king-deal-2.png');
+export const KingDeal3 = require('./king-deal-3.png');
 export const MainMenu1 = require('./main-menu-1.png');
 export const MainMenu2 = require('./main-menu-2.png');
 export const MainMenu3 = require('./main-menu-3.png');

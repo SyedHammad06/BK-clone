@@ -4,6 +4,7 @@
 @use '../components/Navbar/Navbar' as *;
 @use '../components/Slideshow/Slideshow' as *;
 @use '../components/Menu/Menu.scss' as *;
+@use '../components/KingDeals/KingDeals.scss' as *;
 
 @font-face {
   font-family: 'BB';
@@ -34,6 +35,7 @@ html {
 
 body {
   line-height: 1.5;
+  background-color: $color-background;
   font-family: 'DIN Regular';
 }
 
