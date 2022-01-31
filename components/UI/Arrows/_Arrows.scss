@@ -1,0 +1,45 @@
+@use '../../../sass/mixins' as *;
+@use '../../../sass/variables' as *;
+
+.Arrows {
+  &__left,
+  &__right {
+    width: 4rem;
+    height: 6.5rem;
+    border: none;
+    background-color: $color-white;
+    box-shadow: $box-shadow;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &--menu {
+      top: 30%;
+    }
+
+    &:disabled {
+      & svg {
+        & path {
+          fill: gray;
+        }
+      }
+      cursor: not-allowed;
+    }
+  }
+
+  &__left {
+    left: -5.5rem;
+    border-radius: 1rem 0 0 1rem;
+
+    & svg {
+      transform: rotateZ(180deg);
+    }
+  }
+
+  &__right {
+    right: -5.5rem;
+    border-radius: 0 1rem 1rem 0;
+  }
+}

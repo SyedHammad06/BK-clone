@@ -6,7 +6,9 @@ import { KingDeal1, KingDeal2, KingDeal3 } from '../../public/images/index';
 export const KingDeals: NextPage = () => {
   return (
     <div className='KingDeals'>
+      {/* Heading */}
       <h2 className='KingDeals__heading'>King Deals Of The Day</h2>
+      {/* King Deals */}
       <div className='KingDeals__card--container'>
         <div className='KingDeals__card'>
           <Image src={KingDeal3} alt='Free Delivery' placeholder='blur' />

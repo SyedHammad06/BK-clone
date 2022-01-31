@@ -1,10 +1,11 @@
 @use '../../sass/mixins' as *;
+@use '../../sass/variables' as *;
 
 .KingDeals {
-  padding: 0 7.5%;
+  padding: $section-padding;
 
   &__heading {
-    padding: 3rem 0;
+    padding: $heading-padding;
   }
 
   &__card {

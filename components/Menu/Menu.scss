@@ -2,7 +2,6 @@
 @use '../../sass/variables' as *;
 
 .Menu {
-  position: relative;
   padding: 0 7.5%;
   font-family: 'DIN Bold';
   background-image: url('../../public/images/menu-back.png');
@@ -11,6 +10,10 @@
     width: 100%;
     padding: 3rem 0;
     @include flex(space-between, center);
+  }
+
+  &__bottom {
+    position: relative;
   }
 
   &__heading {
@@ -32,7 +35,7 @@
     }
   }
 
-  &__bottom {
+  &__container {
     width: 100%;
     overflow-x: scroll;
     @include flex(flex-start, baseline);
@@ -72,48 +75,6 @@
       font-size: 1.8rem;
       text-align: center;
       padding: 1.6rem 0 2.9rem;
-    }
-  }
-
-  &__arrow {
-    &--left,
-    &--right {
-      width: 4rem;
-      height: 6.5rem;
-      border: none;
-      background-color: $color-white;
-      box-shadow: $box-shadow;
-      display: grid;
-      place-items: center;
-
-      &:disabled {
-        & svg {
-          & path {
-            fill: gray;
-          }
-        }
-        cursor: not-allowed;
-      }
-    }
-
-    &--left {
-      position: absolute;
-      left: 6.6rem;
-      top: 50%;
-      transform: translateY(-40%);
-      border-radius: 1rem 0 0 1rem;
-
-      & svg {
-        transform: rotateZ(180deg);
-      }
-    }
-
-    &--right {
-      position: absolute;
-      right: 8rem;
-      top: 50%;
-      transform: translateY(-40%);
-      border-radius: 0 1rem 1rem 0;
     }
   }
 }

@@ -84,7 +84,7 @@ export const Navbar: NextPage = () => {
           </div>
           <div className='Navbar__menu--3 Navbar__menu--item'>
             <Profile />
-            <h3 className='Navbar__menu--text'>My Profile</h3>
+            <h3 className='Navbar__menu--text'>Login</h3>
           </div>
           <div className='Navbar__menu--4 Navbar__menu--item'>
             <Cart />

@@ -5,6 +5,9 @@
 @use '../components/Slideshow/Slideshow' as *;
 @use '../components/Menu/Menu.scss' as *;
 @use '../components/KingDeals/KingDeals.scss' as *;
+@use '../components/Favorites/Favorites.scss' as *;
+
+@use '../components/UI/Arrows/Arrows' as *;
 
 @font-face {
   font-family: 'BB';
@@ -49,4 +52,8 @@ header {
   z-index: 100;
   overflow: visible;
   background-color: $color-white;
+}
+
+.rounded-img {
+  border-radius: 1rem 0 0 1rem;
 }

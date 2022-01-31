@@ -35,6 +35,7 @@ export const Slideshow: NextPage = () => {
 
   return (
     <div className='Slideshow__container'>
+      {/* Images */}
       <div className='Slideshow'>
         <div
           className={
@@ -102,6 +103,7 @@ export const Slideshow: NextPage = () => {
           }
           onClick={() => clear(1)}
         ></div>
+        {/* Dots */}
         <div
           className={
             current === 2

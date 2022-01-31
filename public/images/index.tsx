@@ -30,3 +30,4 @@ export const Showcase1 = require('./showcase-1.png');
 export const Showcase2 = require('./showcase-2.png');
 export const Showcase3 = require('./showcase-3.png');
 export const Showcase4 = require('./showcase-4.png');
+export const NonVeg = require('./chicken.png');
