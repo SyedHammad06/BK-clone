@@ -3,9 +3,10 @@
 
 @use '../components/Navbar/Navbar' as *;
 @use '../components/Slideshow/Slideshow' as *;
-@use '../components/Menu/Menu.scss' as *;
-@use '../components/KingDeals/KingDeals.scss' as *;
-@use '../components/Favorites/Favorites.scss' as *;
+@use '../components/Menu/Menu' as *;
+@use '../components/KingDeals/KingDeals' as *;
+@use '../components/Favorites/Favorites' as *;
+@use '../components/BKSpecials/BkSpecials' as *;
 
 @use '../components/UI/Arrows/Arrows' as *;
 
@@ -56,4 +57,12 @@ header {
 
 .rounded-img {
   border-radius: 1rem 0 0 1rem;
+}
+
+.rounded-banner {
+  border-radius: 1rem;
+}
+
+.banner {
+  padding: 3rem 7.5% 0 7.5%;
 }

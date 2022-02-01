@@ -34,66 +34,55 @@ export const Slideshow: NextPage = () => {
   };
 
   return (
-    <div className='Slideshow__container'>
-      {/* Images */}
-      <div className='Slideshow'>
-        <div
-          className={
-            current === 1
-              ? 'Slideshow__slide Slideshow__slide--active'
-              : 'Slideshow__slide'
-          }
-        >
-          <Image
-            src={Showcase1}
-            layout='responsive'
-            alt='Slideshow Image'
-            placeholder='blur'
-          />
-        </div>
-        <div
-          className={
-            current === 2
-              ? 'Slideshow__slide Slideshow__slide--active'
-              : 'Slideshow__slide'
-          }
-        >
-          <Image
-            src={Showcase2}
-            layout='responsive'
-            alt='Slideshow Image'
-            placeholder='blur'
-          />
-        </div>
-        <div
-          className={
-            current === 3
-              ? 'Slideshow__slide Slideshow__slide--active'
-              : 'Slideshow__slide'
-          }
-        >
-          <Image
-            src={Showcase3}
-            layout='responsive'
-            alt='Slideshow Image'
-            placeholder='blur'
-          />
-        </div>
-        <div
-          className={
-            current === 4
-              ? 'Slideshow__slide Slideshow__slide--active'
-              : 'Slideshow__slide'
-          }
-        >
-          <Image
-            src={Showcase4}
-            layout='responsive'
-            alt='Slideshow Image'
-            placeholder='blur'
-          />
-        </div>
-      </div>
+    <div className='Slideshow'>
+      <Image
+        className={
+          current === 1
+            ? 'Slideshow__slide Slideshow__slide--active'
+            : 'Slideshow__slide'
+        }
+        src={Showcase1}
+        layout='fill'
+        objectFit='cover'
+        alt='Slideshow Image'
+        placeholder='blur'
+      />
+      <Image
+        className={
+          current === 2
+            ? 'Slideshow__slide Slideshow__slide--active'
+            : 'Slideshow__slide'
+        }
+        src={Showcase2}
+        layout='fill'
+        objectFit='cover'
+        alt='Slideshow Image'
+        placeholder='blur'
+      />
+      <Image
+        className={
+          current === 3
+            ? 'Slideshow__slide Slideshow__slide--active'
+            : 'Slideshow__slide'
+        }
+        src={Showcase3}
+        layout='fill'
+        objectFit='cover'
+        alt='Slideshow Image'
+        placeholder='blur'
+      />
+      <Image
+        className={
+          current === 4
+            ? 'Slideshow__slide Slideshow__slide--active'
+            : 'Slideshow__slide'
+        }
+        src={Showcase4}
+        layout='fill'
+        objectFit='cover'
+        alt='Slideshow Image'
+        placeholder='blur'
+      />
       <div className='Slideshow__dots-container'>
         <div
           className={

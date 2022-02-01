@@ -49,6 +49,9 @@
   }
 
   &__item {
+    @include flex(center, center);
+    flex-direction: column;
+
     &:not(:last-of-type) {
       margin-right: 4rem;
     }

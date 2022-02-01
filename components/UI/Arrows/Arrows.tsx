@@ -17,6 +17,10 @@ export const Arrows: NextPage<Props> = ({ className, menu }) => {
     const ele = document.querySelector(className);
     if (ele) {
       setWidth(ele.scrollWidth);
+      if (window.innerWidth / ele.scrollWidth > 1.15) {
+        console.log(window.innerWidth / ele.scrollWidth);
+        setEnd(true);
+      }
     }
   }, []);
 
@@ -63,7 +67,7 @@ export const Arrows: NextPage<Props> = ({ className, menu }) => {
         });
         setEnd(false);
         setWidth(ele.scrollWidth);
-        setScrollPos(900);
+        setScrollPos(scrollPos - 900);
       }
     }
   };
