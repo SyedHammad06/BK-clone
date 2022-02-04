@@ -1,0 +1,83 @@
+@use '../../sass/mixins' as *;
+@use '../../sass/variables' as *;
+
+.Menu {
+  padding: 0 7.5%;
+  font-family: 'DIN Bold';
+  background-image: url('../../public/images/menu-back.png');
+
+  &__top {
+    width: 100%;
+    padding: 3rem 0;
+    @include flex(space-between, center);
+  }
+
+  &__bottom {
+    position: relative;
+  }
+
+  &__heading {
+    font-family: 'BB';
+  }
+
+  &__see-all {
+    &--text {
+      color: $color-orange;
+      font-size: 1.6rem;
+    }
+
+    & svg {
+      margin-left: 1rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__container {
+    width: 100%;
+    overflow-x: scroll;
+    @include flex(flex-start, baseline);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    transition: 0.25s;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__item {
+    @include flex(center, center);
+    flex-direction: column;
+
+    &:not(:last-of-type) {
+      margin-right: 4rem;
+    }
+
+    &:last-of-type {
+      margin-right: 2rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &--img {
+      width: 11.4rem;
+      height: 11.4rem;
+      padding: 2rem 1rem;
+      border-radius: 1rem;
+      box-shadow: $box-shadow;
+      background-color: $color-white;
+    }
+
+    &--text {
+      line-height: 1.33;
+      font-size: 1.8rem;
+      text-align: center;
+      padding: 1.6rem 0 2.9rem;
+    }
+  }
+}

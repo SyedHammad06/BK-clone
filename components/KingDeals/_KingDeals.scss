@@ -1,0 +1,21 @@
+@use '../../sass/mixins' as *;
+@use '../../sass/variables' as *;
+
+.KingDeals {
+  padding: $section-padding;
+
+  &__heading {
+    padding: $heading-padding;
+  }
+
+  &__card {
+    width: 37rem;
+    height: 18rem;
+    margin-right: 3rem;
+
+    &--container {
+      width: 100%;
+      @include flex(flex-start, center);
+    }
+  }
+}
