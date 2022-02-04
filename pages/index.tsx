@@ -8,6 +8,7 @@ import { Navbar } from '../components/Navbar/Navbar';
 import { Slideshow } from '../components/Slideshow/Slideshow';
 import { Banner1, Banner2 } from '../public/images/index';
 import { BKSpecials } from '../components/BKSpecials/BKSpecials';
+import { Footer } from '../components/Footer/Footer';
 
 const Home: NextPage = () => {
   return (
@@ -36,6 +37,7 @@ const Home: NextPage = () => {
           placeholder='blur'
         />
       </div>
+      <Footer />
     </>
   );
 };
