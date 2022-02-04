@@ -1,9 +1,11 @@
 import type { NextPage } from 'next';
 import { FormEventHandler, useRef } from 'react';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 const Login: NextPage = () => {
   const username = useRef<HTMLInputElement>(null);
   const password = useRef<HTMLInputElement>(null);
+  const { data: session } = useSession();
 
   const submitHandler: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
@@ -11,24 +13,13 @@ const Login: NextPage = () => {
       const userName = username.current.value;
       const passWord = password.current.value;
       const body = { username: userName, password: passWord };
-
-      console.log(body);
-
-      fetch('http://localhost:3000/api/auth/credentials', {
-        method: 'POST',
-        body: JSON.stringify(body),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
     }
   };
 
   return (
     <div>
       <h1>Login</h1>
+      <h2 onClick={() => signIn()}>Sign in</h2>
       <form onSubmit={(event) => submitHandler(event)}>
         <label htmlFor='username'>Username</label>
         <input type='text' name='username' id='username' ref={username} />
