@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
+import { useState } from 'react';
 
 import { Favorites } from '../components/Favorites/Favorites';
 import { KingDeals } from '../components/KingDeals/KingDeals';
@@ -9,11 +10,16 @@ import { Slideshow } from '../components/Slideshow/Slideshow';
 import { Banner1, Banner2 } from '../public/images/index';
 import { BKSpecials } from '../components/BKSpecials/BKSpecials';
 import { Footer } from '../components/Footer/Footer';
+import { Backdrop } from '../components/UI/Backdrop/Backdrop';
+import { Login } from '../components/Login/Login';
 
 const Home: NextPage = () => {
+  const [showLogin, setShowLogin] = useState(false);
+  const [auth, setAuth] = useState(false);
+
   return (
-    <>
-      <Navbar />
+    <div className={showLogin ? 'hidden-scrollbar' : ''}>
+      <Navbar auth={auth} setShowLogin={setShowLogin} />
       <Slideshow />
       <Menu />
       <KingDeals />
@@ -38,7 +44,12 @@ const Home: NextPage = () => {
         />
       </div>
       <Footer />
-    </>
+      {showLogin ? (
+        <Backdrop>
+          <Login setAuth={setAuth} goBack={setShowLogin} />
+        </Backdrop>
+      ) : null}
+    </div>
   );
 };
 

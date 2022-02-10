@@ -1,0 +1,175 @@
+@use '../../sass/variables' as *;
+@use '../../sass/mixins' as *;
+
+.Login {
+  width: 58.2rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  color: $color-brown;
+  font-family: 'Flame Regular';
+  background-color: $color-creme;
+
+  &__top {
+    text-align: center;
+  }
+
+  &__navigation {
+    text-align: left;
+    padding: 1rem 0 0 1rem;
+  }
+
+  &__img-container {
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto;
+  }
+
+  &__heading {
+    margin: 1rem 0;
+    font-size: 2.4rem;
+    text-transform: unset;
+    font-family: inherit;
+  }
+
+  &__form {
+    width: 70%;
+    margin: 0 auto;
+
+    & > * {
+      margin: 0.5rem 0;
+    }
+
+    & label {
+      font-size: 1.6rem;
+      display: block;
+      text-align: left;
+    }
+
+    & input {
+      width: 100%;
+      border: none;
+      padding: 1rem 0;
+      background: none;
+      font-size: 1.4rem;
+      font-family: inherit;
+      letter-spacing: 0.1rem;
+      border-bottom: 1px solid $color-brown;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    font-family: inherit;
+    padding: 1rem 2rem;
+    border: none;
+    letter-spacing: 0.1rem;
+    font-size: 1.6rem;
+    border-radius: 1rem;
+    margin: 1rem 0;
+    color: $color-white;
+    background-color: $color-brown;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__or-container {
+    width: 70%;
+    @include flex(space-between, center);
+    margin: 0 auto;
+  }
+
+  &__or {
+    font-size: 1.6rem;
+  }
+
+  &__line {
+    width: 42%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  &__alternatives-container {
+    width: 70%;
+    margin: 1rem auto 2rem auto;
+  }
+
+  &__alternatives {
+    @include flex(space-evenly, center);
+
+    &--heading {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    &--1,
+    &--2 {
+      width: 15rem;
+      @include flex(center, center);
+      padding: 1rem 2rem;
+      background-color: $color-white;
+      border-radius: 0.5rem;
+      box-shadow: $box-shadow;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    & img {
+      width: 2rem;
+      height: auto;
+    }
+
+    &--text {
+      font-size: 1.4rem;
+      margin-left: 1rem;
+    }
+  }
+
+  &__bottom {
+    font-size: 1.4rem;
+    color: $color-white;
+    text-align: center;
+    padding: 1.5rem 14%;
+    border-top: 2px solid $color-orange;
+    background-color: $color-brown;
+  }
+
+  &__signup {
+    font-size: 1.4rem;
+    user-select: none;
+    margin: 0.5rem 0;
+
+    & u:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__error {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    padding: 2rem;
+    color: $color-white;
+    font-size: 1.4rem;
+    font-family: 'DIN Regular';
+    user-select: none;
+    background-color: crimson;
+
+    & span {
+      display: inline-block;
+      margin-left: 1rem;
+      transform: translateY(-1rem);
+    }
+  }
+}

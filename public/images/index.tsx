@@ -1,4 +1,5 @@
 export const Logo = require('./logo.png');
+export const Logo2 = require('./logo-2.png');
 export const LogoLight = require('./logo-light.png');
 export const AppStore = require('./app-store.png');
 export const Banner1 = require('./banner-1.png');
@@ -19,6 +20,8 @@ export const Fav4 = require('./fav-4.png');
 export const Fav5 = require('./fav-5.png');
 export const Fav6 = require('./fav-6.png');
 export const Fav7 = require('./fav-7.png');
+export const FB = require('./fb.png');
+export const Google = require('./google.png');
 export const KingDeal1 = require('./king-deal-1.png');
 export const KingDeal2 = require('./king-deal-2.png');
 export const KingDeal3 = require('./king-deal-3.png');

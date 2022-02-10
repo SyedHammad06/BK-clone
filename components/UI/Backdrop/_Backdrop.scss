@@ -1,0 +1,11 @@
+@use '../../../sass/variables' as *;
+
+.Backdrop {
+  position: fixed;
+  inset: 0 0 0 0;
+  z-index: 110;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: grid;
+  box-shadow: $box-shadow;
+  place-items: center;
+}

@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 
 import { Logo } from '../../public/images/index';
 import LocationPin from '../../public/svg/location.svg';
@@ -10,7 +10,12 @@ import Profile from '../../public/svg/profile.svg';
 import Cart from '../../public/svg/cart.svg';
 import Search from '../../public/svg/search.svg';
 
-export const Navbar: NextPage = () => {
+interface Props {
+  auth: boolean;
+  setShowLogin: Dispatch<SetStateAction<boolean>>;
+}
+
+export const Navbar: NextPage<Props> = ({ auth, setShowLogin }) => {
   const [slider, setSlider] = useState<Boolean>(false);
 
   return (
@@ -82,9 +87,12 @@ export const Navbar: NextPage = () => {
             <KingDeals />
             <h3 className='Navbar__menu--text'>King Deals</h3>
           </div>
-          <div className='Navbar__menu--3 Navbar__menu--item'>
+          <div
+            className='Navbar__menu--3 Navbar__menu--item'
+            onClick={() => setShowLogin(true)}
+          >
             <Profile />
-            <h3 className='Navbar__menu--text'>Login</h3>
+            <h3 className='Navbar__menu--text'>{auth ? 'Profile' : 'Login'}</h3>
           </div>
           <div className='Navbar__menu--4 Navbar__menu--item'>
             <Cart />

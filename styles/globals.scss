@@ -8,8 +8,10 @@
 @use '../components/Favorites/Favorites' as *;
 @use '../components/BKSpecials/BkSpecials' as *;
 @use '../components/Footer/Footer' as *;
+@use '../components/Login/Login' as *;
 
 @use '../components/UI/Arrows/Arrows' as *;
+@use '../components/UI/Backdrop/Backdrop' as *;
 
 @font-face {
   font-family: 'BB';
@@ -24,6 +26,16 @@
 @font-face {
   font-family: 'DIN Bold';
   src: url('../assets/DINNextLTPro-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Flame Regular';
+  src: url('../assets/FlameRegular.otf');
+}
+
+@font-face {
+  font-family: 'Flame Bold';
+  src: url('../assets/FlameBold.otf');
 }
 
 *,
@@ -66,4 +78,10 @@ header {
 
 .banner {
   padding: 3rem 7.5% 0 7.5%;
+}
+
+.hidden-scrollbar {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
