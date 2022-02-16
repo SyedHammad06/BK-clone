@@ -6,18 +6,32 @@ import {
   useRef,
   useState,
 } from 'react';
+// import { useSession, signIn } from 'next-auth/react';
 import { NextPage } from 'next';
 import Image from 'next/image';
 
 import { Logo2, Google, FB } from '../../public/images';
 import BackArrow from '../../public/svg/back-arrow.svg';
+import {
+  LiteralUnion,
+  SignInAuthorisationParams,
+  SignInOptions,
+} from 'next-auth/react/types';
+import { BuiltInProviderType } from 'next-auth/providers';
 
 interface Props {
   setAuth: Dispatch<SetStateAction<boolean>>;
   goBack: Dispatch<SetStateAction<boolean>>;
+  signIn: (
+    provider?: LiteralUnion<BuiltInProviderType, string> | undefined,
+    options?: SignInOptions | undefined,
+    authorizationParams?: SignInAuthorisationParams | undefined
+  ) => {};
 }
 
-export const Login: NextPage<Props> = ({ setAuth, goBack }) => {
+export const Login: NextPage<Props> = ({ setAuth, goBack, signIn }) => {
+  // const { data: session } = useSession();
+
   const usernameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
@@ -36,6 +50,14 @@ export const Login: NextPage<Props> = ({ setAuth, goBack }) => {
       confirmPasswordRef.current.value = '';
     }
   }, [signup]);
+
+  // useEffect(() => {
+  //   if (session?.user) {
+  //     console.log(session.user.name);
+  //     setAuth(true);
+  //     goBack(false);
+  //   }
+  // }, []);
 
   const checkValidity = () => {
     if (passwordRef.current && confirmPasswordRef.current) {
@@ -97,6 +119,15 @@ export const Login: NextPage<Props> = ({ setAuth, goBack }) => {
       }
     }
   };
+
+  // const handleLogin = async (provider: string) => {
+  //   try {
+  //     await signIn(provider, { redirect: false });
+  //     setAuth(true);
+  //   } catch (err: any) {
+  //     console.log(err.message);
+  //   }
+  // };
 
   return (
     <div className='Login'>
@@ -171,14 +202,20 @@ export const Login: NextPage<Props> = ({ setAuth, goBack }) => {
         <div className='Login__alternatives-container'>
           <p className='Login__alternatives--heading'>Login using:</p>
           <div className='Login__alternatives'>
-            <div className='Login__alternatives--1'>
+            <button
+              onClick={() => signIn('facebook', { redirect: false })}
+              className='Login__alternatives--1'
+            >
               <Image src={FB} alt='Facebook' width={20} height={20} />
               <p className='Login__alternatives--text'>Facebook</p>
-            </div>
-            <div className='Login__alternatives--2'>
+            </button>
+            <button
+              onClick={() => signIn('google', { redirect: false })}
+              className='Login__alternatives--2'
+            >
               <Image src={Google} alt='Google' width={20} height={20} />
               <div className='Login__alternatives--text'>Google</div>
-            </div>
+            </button>
           </div>
         </div>
       </div>

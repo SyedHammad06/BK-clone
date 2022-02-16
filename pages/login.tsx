@@ -1,39 +1,32 @@
 import type { NextPage } from 'next';
 import { FormEventHandler, useRef } from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
+import { StoresType } from '../models/Stores';
 
 const Login: NextPage = () => {
-  const username = useRef<HTMLInputElement>(null);
-  const username2 = useRef<HTMLInputElement>(null);
-  const password = useRef<HTMLInputElement>(null);
-  const password2 = useRef<HTMLInputElement>(null);
+  const name = useRef<HTMLInputElement>(null);
+  const time = useRef<HTMLInputElement>(null);
+  const time2 = useRef<HTMLInputElement>(null);
+  const address = useRef<HTMLInputElement>(null);
+  const distance = useRef<HTMLInputElement>(null);
   const { data: session } = useSession();
 
   const loginSubmitHandler: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    if (username.current && password.current) {
-      const userName = username.current.value;
-      const passWord = password.current.value;
-      const body = { username: userName, password: passWord };
-      fetch('http://localhost:3000/api/login', {
-        method: 'POST',
-        body: JSON.stringify(body),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-        .then((data) => data.json())
-        .then((res) => console.log(res));
-    }
-  };
-
-  const signupSubmitHandler: FormEventHandler<HTMLFormElement> = (event) => {
-    event.preventDefault();
-    if (username2.current && password2.current) {
-      const userName2 = username2.current.value;
-      const passWord2 = password2.current.value;
-      const body = { username: userName2, password: passWord2 };
-      fetch('http://localhost:3000/api/signup', {
+    if (
+      name.current &&
+      time.current &&
+      address.current &&
+      distance.current &&
+      time2.current
+    ) {
+      const body: StoresType = {
+        name: name.current.value,
+        address: address.current.value,
+        distance: Number(distance.current.value),
+        timings: [time.current.value, time2.current.value],
+      };
+      fetch('http://localhost:3000/api/stores', {
         method: 'POST',
         body: JSON.stringify(body),
         headers: {
@@ -48,37 +41,19 @@ const Login: NextPage = () => {
   return (
     <>
       <div>
-        <h1>Login</h1>
-        {session ? <h2 onClick={() => signIn()}>Sign in</h2> : null}
+        <h1>Stores</h1>
         <form onSubmit={(event) => loginSubmitHandler(event)}>
-          <label htmlFor='username1'>Username</label>
-          <input type='text' name='username' id='username1' ref={username} />
+          <label htmlFor='name'>Name:</label>
+          <input type='text' name='name' id='name' ref={name} />
           <br />
-          <label htmlFor='password1'>Password</label>
-          <input
-            type='password'
-            name='password'
-            id='password1'
-            ref={password}
-          />
+          <label htmlFor='timings'>Timing:</label>
+          <input type='time' name='timings' id='timings' ref={time} />
+          <input type='time' name='timings' id='timings2' ref={time2} />
           <br />
-          <button type='submit'>Submit</button>
-        </form>
-      </div>
-      <div>
-        <h2>SignUp</h2>
-        <form onSubmit={(event) => signupSubmitHandler(event)}>
-          <label htmlFor='username'>Username</label>
-          <input type='text' name='username' id='username' ref={username2} />
-          <br />
-          <label htmlFor='password'>Password</label>
-          <input
-            type='password'
-            name='password'
-            id='password'
-            ref={password2}
-          />
-          <br />
+          <label htmlFor='name'>Address:</label>
+          <input type='text' name='name' id='name' ref={address} />
+          <label htmlFor='name2'>Distance:</label>
+          <input type='text' name='name' id='name2' ref={distance} />
           <button type='submit'>Submit</button>
         </form>
       </div>

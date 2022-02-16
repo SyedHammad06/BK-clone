@@ -26,7 +26,7 @@ export const Slideshow: NextPage = () => {
     }, 4000);
   };
 
-  const clear = async (id: number) => {
+  const clear = (id: number) => {
     setClearing(true);
     clearTimeout(timeout);
     setCurrent(id);

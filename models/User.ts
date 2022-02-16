@@ -1,8 +1,16 @@
-// models/User.js
-
 import mongoose from 'mongoose';
 
-const UserSchema = new mongoose.Schema({
+export type Id = mongoose.Schema.Types.ObjectId;
+
+export interface UserType {
+  username: string;
+  password: string;
+  tokens: string[];
+  _id: mongoose.Schema.Types.ObjectId;
+  save: () => {};
+}
+
+const UserSchema = new mongoose.Schema<UserType>({
   username: {
     type: String,
     unique: true,
@@ -21,4 +29,5 @@ const UserSchema = new mongoose.Schema({
   ],
 });
 
-export const User = mongoose.models.User || mongoose.model('User', UserSchema);
+export const User =
+  mongoose.models.User || mongoose.model<UserType>('User', UserSchema);

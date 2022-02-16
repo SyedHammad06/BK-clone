@@ -1,4 +1,5 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import { Id, UserType } from './../../models/User';
+import { NextApiResponse } from 'next';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
@@ -8,7 +9,7 @@ import dbConnect from '../../lib/dbConnect';
 import { User } from '../../models/User';
 
 //* This function generates the Authentication Token
-export async function generateAuthToken(id: number) {
+export async function generateAuthToken(id: Id) {
   const token = await jwt.sign({ id: id }, config.jwtSecret);
   return token;
 }
@@ -24,7 +25,7 @@ export default async function handler(req: Request, res: NextApiResponse) {
     //* Returns all the users present in the database
     case 'GET':
       try {
-        const users = await User.find({});
+        const users: UserType[] = await User.find({});
         res.status(200).json({ success: true, data: users });
       } catch (err: any) {
         res.status(400).json({ error: err.message });
@@ -35,7 +36,9 @@ export default async function handler(req: Request, res: NextApiResponse) {
     case 'POST':
       try {
         //* Checks if the user is already present
-        const userPresent = await User.findOne({ username: req.body.username });
+        const userPresent: UserType | null = await User.findOne({
+          username: req.body.username,
+        });
         if (userPresent) {
           throw new Error('Username already present');
         }
@@ -44,7 +47,7 @@ export default async function handler(req: Request, res: NextApiResponse) {
         const hashedPassword = await bcrypt.hash(req.body.password, 8);
 
         //* Adding the user to the database
-        const user = await User.create({
+        const user: UserType | null = await User.create({
           username: req.body.username,
           password: hashedPassword,
         });

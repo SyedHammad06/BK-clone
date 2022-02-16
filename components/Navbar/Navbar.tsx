@@ -9,13 +9,15 @@ import KingDeals from '../../public/svg/king-deals.svg';
 import Profile from '../../public/svg/profile.svg';
 import Cart from '../../public/svg/cart.svg';
 import Search from '../../public/svg/search.svg';
+import { Session } from 'next-auth';
 
 interface Props {
   auth: boolean;
+  session: Session | null;
   setShowLogin: Dispatch<SetStateAction<boolean>>;
 }
 
-export const Navbar: NextPage<Props> = ({ auth, setShowLogin }) => {
+export const Navbar: NextPage<Props> = ({ auth, setShowLogin, session }) => {
   const [slider, setSlider] = useState<Boolean>(false);
 
   return (
@@ -89,10 +91,15 @@ export const Navbar: NextPage<Props> = ({ auth, setShowLogin }) => {
           </div>
           <div
             className='Navbar__menu--3 Navbar__menu--item'
-            onClick={() => setShowLogin(true)}
+            onClick={() => {
+              if (!auth) {
+                setShowLogin(true);
+              }
+            }}
           >
             <Profile />
-            <h3 className='Navbar__menu--text'>{auth ? 'Profile' : 'Login'}</h3>
+            {session && <h3 className='Navbar__menu--text'>Profile</h3>}
+            {!session && <h3 className='Navbar__menu--text'>Login</h3>}
           </div>
           <div className='Navbar__menu--4 Navbar__menu--item'>
             <Cart />

@@ -1,3 +1,4 @@
+import { UserType } from './../../models/User';
 import { NextApiRequest, NextApiResponse } from 'next';
 import bcrypt from 'bcryptjs';
 
@@ -25,32 +26,34 @@ export default async function handler(req: Request, res: NextApiResponse) {
     case 'POST':
       try {
         //* Looking for the username in the database
-        const user = await User.findOne({
+        const user: UserType | null = await User.findOne({
           username: req.body.username,
         });
 
-        try {
-          //* Checking if the passwords match
-          const isMatch = await bcrypt.compare(
-            req.body.password,
-            user.password
-          );
+        if (user) {
+          try {
+            //* Checking if the passwords match
+            const isMatch = await bcrypt.compare(
+              req.body.password,
+              user.password
+            );
 
-          //* If both username and password match then this block runs
-          if (user && isMatch) {
-            //* Generating the authentication token
-            const token = await generateAuthToken(user._id);
-            //* Saving it to the user model
-            user.tokens = user.tokens.concat(token);
-            await user.save();
-            //* Sending the response to the client
-            return res.json({ success: true, user, token });
+            //* If both username and password match then this block runs
+            if (user && isMatch) {
+              //* Generating the authentication token
+              const token = await generateAuthToken(user._id);
+              //* Saving it to the user model
+              user.tokens = user.tokens.concat(token);
+              await user.save();
+              //* Sending the response to the client
+              return res.json({ success: true, user, token });
+            }
+          } catch (err: any) {
+            //* This runs if the password doesn't match
+            return res
+              .status(404)
+              .json({ success: false, error: 'Invalid Username or Password' });
           }
-        } catch (err: any) {
-          //* This runs if the password doesn't match
-          return res
-            .status(404)
-            .json({ success: false, error: 'Invalid Username or Password' });
         }
         //* This runs when the username doesn't match
         res

@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { signIn, useSession } from 'next-auth/react';
 
 import { Favorites } from '../components/Favorites/Favorites';
 import { KingDeals } from '../components/KingDeals/KingDeals';
@@ -14,12 +15,18 @@ import { Backdrop } from '../components/UI/Backdrop/Backdrop';
 import { Login } from '../components/Login/Login';
 
 const Home: NextPage = () => {
+  const { data: session } = useSession();
+
   const [showLogin, setShowLogin] = useState(false);
   const [auth, setAuth] = useState(false);
 
+  useEffect(() => {
+    session && setAuth(true);
+  });
+
   return (
     <div className={showLogin ? 'hidden-scrollbar' : ''}>
-      <Navbar auth={auth} setShowLogin={setShowLogin} />
+      <Navbar auth={auth} setShowLogin={setShowLogin} session={session} />
       <Slideshow />
       <Menu />
       <KingDeals />
@@ -44,9 +51,9 @@ const Home: NextPage = () => {
         />
       </div>
       <Footer />
-      {showLogin ? (
+      {!auth && showLogin ? (
         <Backdrop>
-          <Login setAuth={setAuth} goBack={setShowLogin} />
+          <Login signIn={signIn} setAuth={setAuth} goBack={setShowLogin} />
         </Backdrop>
       ) : null}
     </div>

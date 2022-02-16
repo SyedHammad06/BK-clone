@@ -113,6 +113,7 @@
 
     &--1,
     &--2 {
+      border: none;
       width: 15rem;
       @include flex(center, center);
       padding: 1rem 2rem;

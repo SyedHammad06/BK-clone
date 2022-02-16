@@ -1,22 +1,16 @@
 import NextAuth from 'next-auth';
-import Credentials from 'next-auth/providers/credentials';
+import GoogleProvider from 'next-auth/providers/google';
+import FBProvider from 'next-auth/providers/facebook';
 
 export default NextAuth({
   providers: [
-    Credentials({
-      name: 'Credentials',
-      credentials: {
-        username: { label: 'Username', type: 'text', placeholder: 'John Doe' },
-        password: { label: 'Password', type: 'password' },
-      },
-
-      async authorize(credentials, req) {
-        if (req.body.username && req.body.password) {
-          return user;
-        } else {
-          return null;
-        }
-      },
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
+    }),
+    FBProvider({
+      clientId: process.env.FB_ID,
+      clientSecret: process.env.FB_SECRET,
     }),
   ],
 });
