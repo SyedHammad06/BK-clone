@@ -1,6 +1,5 @@
 import type { NextPage } from 'next';
 import { FormEventHandler, useRef } from 'react';
-import { useSession, signIn, signOut } from 'next-auth/react';
 import { StoresType } from '../models/Stores';
 
 const Login: NextPage = () => {
@@ -9,7 +8,6 @@ const Login: NextPage = () => {
   const time2 = useRef<HTMLInputElement>(null);
   const address = useRef<HTMLInputElement>(null);
   const distance = useRef<HTMLInputElement>(null);
-  const { data: session } = useSession();
 
   const loginSubmitHandler: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
@@ -26,6 +24,7 @@ const Login: NextPage = () => {
         distance: Number(distance.current.value),
         timings: [time.current.value, time2.current.value],
       };
+
       fetch('http://localhost:3000/api/stores', {
         method: 'POST',
         body: JSON.stringify(body),

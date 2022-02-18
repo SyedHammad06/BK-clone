@@ -13,9 +13,9 @@ export default async function handler(req: Request, res: NextApiResponse) {
     case 'GET':
       try {
         const stores: StoresType[] = await Stores.find({});
-        res.json({ success: true, stores });
+        return res.json({ success: true, stores });
       } catch (err: any) {
-        res.status(500).json({ success: false, error: err.message });
+        return res.status(500).json({ success: false, error: err.message });
       }
       break;
 
@@ -28,7 +28,6 @@ export default async function handler(req: Request, res: NextApiResponse) {
           timings: req.body.timings,
           distance: req.body.distance,
         });
-        console.log(store);
         res.status(201).json({ success: true, store });
       } catch (err: any) {
         res.status(400).json({ success: false, error: err.message });

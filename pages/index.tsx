@@ -21,12 +21,12 @@ const Home: NextPage = () => {
   const [auth, setAuth] = useState(false);
 
   useEffect(() => {
-    session && setAuth(true);
+    session && setAuth(true) && setShowLogin(false);
   });
 
   return (
     <div className={showLogin ? 'hidden-scrollbar' : ''}>
-      <Navbar auth={auth} setShowLogin={setShowLogin} session={session} />
+      <Navbar auth={auth} setShowLogin={setShowLogin} />
       <Slideshow />
       <Menu />
       <KingDeals />

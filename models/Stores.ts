@@ -5,7 +5,7 @@ export interface StoresType {
   timings: string[];
   address: string;
   distance: number;
-  save(): () => {};
+  save?(): () => {};
 }
 
 const StoreSchema = new Schema<StoresType>({
